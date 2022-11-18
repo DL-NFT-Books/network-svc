@@ -1,0 +1,25 @@
+allOf:
+  - $ref: '#/components/schemas/NetworkKey'
+  - type: object
+    required:
+      - attributes
+    properties:
+      attributes:
+        type: object
+        required:
+          - name
+          - chain_id
+          - factory_address
+        properties:
+          name:
+            type: string
+            description: Network name
+            example: "polygon"
+          chain_id:
+            type: integer
+            description: Chain id
+            example: 5
+          factory_address:
+            type: string
+            description: Address of token factory on current network
+            example: "0x63B703318fbcD1F319a5C0036F9bcd6573c483ba"

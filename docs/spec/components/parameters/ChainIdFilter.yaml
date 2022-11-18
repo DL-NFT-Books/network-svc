@@ -1,0 +1,9 @@
+name: 'filter[id]'
+in: query
+description: Array of network IDs to be filtered with
+explode: false
+required: false
+schema:
+  type: array
+  items:
+    type: integer

@@ -1,0 +1,19 @@
+log:
+  level: debug
+  disable_sentry: true
+
+db:
+  url: db_url
+
+listener:
+  addr: :8000
+
+doorman:
+  service_url: http://localhost:8054/integrations/doorman
+
+cop:
+  disabled: true
+  endpoint: "http://..."
+  upstream: "http://..."
+  service_name: network-svc
+  service_port: 80
