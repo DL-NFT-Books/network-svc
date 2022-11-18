@@ -37,7 +37,6 @@ get:
   summary: List Networks
   operationId: getNetworksList
   parameters:
-    - $ref: '#/components/parameters/ChainIdFilter'
   responses:
     '200':
       description: Success

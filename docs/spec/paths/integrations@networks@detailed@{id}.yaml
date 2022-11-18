@@ -1,8 +1,8 @@
 get:
   tags:
     - Networks
-  summary: List Networks with details
-  operationId: getNetworksDetailedList
+  summary: Get Network with details
+  operationId: getDetailedNetwork
   parameters:
     - $ref: '#/components/parameters/AuthParam'
   responses:
@@ -14,8 +14,6 @@ get:
             type: object
             properties:
               data:
-                type: array
-                items:
-                  $ref: '#/components/schemas/NetworkDetailed'
+                $ref: '#/components/schemas/NetworkDetailed'
     '500':
       $ref: '#/components/schemas/InternalError'

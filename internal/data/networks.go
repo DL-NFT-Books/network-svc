@@ -21,8 +21,8 @@ type NetworksQ interface {
 	FilterByChainID(chainId int64) NetworksQ
 }
 
-func (n *Network) ResourceDefault() *resources.Network {
-	return &resources.Network{
+func (n *Network) ResourceDefault() resources.Network {
+	return resources.Network{
 		Key: resources.NewKeyInt64(n.ID, resources.NETWORKS),
 		Attributes: resources.NetworkAttributes{
 			Name:           n.Name,
@@ -32,8 +32,8 @@ func (n *Network) ResourceDefault() *resources.Network {
 	}
 }
 
-func (n *Network) ResourceDetailed() *resources.NetworkDetailed {
-	return &resources.NetworkDetailed{
+func (n *Network) ResourceDetailed() resources.NetworkDetailed {
+	return resources.NetworkDetailed{
 		Key: resources.NewKeyInt64(n.ID, resources.NETWORKS),
 		Attributes: resources.NetworkDetailedAttributes{
 			Name:           n.Name,
