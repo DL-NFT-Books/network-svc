@@ -9,6 +9,8 @@ type Network struct {
 	RpcUrl         string `db:"rpc_url" structs:"rpc_url"`
 	WebSocketURL   string `db:"ws_url" structs:"ws_url"`
 	FactoryAddress string `db:"factory_address" structs:"factory_address"`
+	FactoryName    string `db:"factory_name" structs:"factory_name"`
+	FactoryVersion string `db:"factory_version" structs:"factory_version"`
 }
 
 type NetworksQ interface {
@@ -41,6 +43,8 @@ func (n *Network) ResourceDetailed() resources.NetworkDetailed {
 			RpcUrl:         n.RpcUrl,
 			WsUrl:          n.WebSocketURL,
 			FactoryAddress: n.FactoryAddress,
+			FactoryName:    n.FactoryName,
+			FactoryVersion: n.FactoryVersion,
 		},
 	}
 }

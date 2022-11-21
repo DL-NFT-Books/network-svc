@@ -6,7 +6,9 @@ CREATE TABLE networks
     chain_id BIGINT NOT NULL DEFAULT 0,
     rpc_url text NOT NULL DEFAULT '',
     ws_url text NOT NULL DEFAULT '',
-    factory_address VARCHAR(42) NOT NULL DEFAULT ''
+    factory_address VARCHAR(42) NOT NULL DEFAULT '',
+    factory_name text NOT NULL DEFAULT '',
+    factory_version text NOT NULL DEFAULT ''
 );
 CREATE UNIQUE INDEX idx_networks_chain_id ON networks (chain_id);
 

@@ -12,6 +12,8 @@ allOf:
           - rpc_url
           - ws_url
           - factory_address
+          - factory_name
+          - factory_version
         properties:
           name:
             type: string
@@ -33,3 +35,11 @@ allOf:
             type: string
             description: Address of token factory on current network
             example: "0x63B703318fbcD1F319a5C0036F9bcd6573c483ba"
+          factory_name:
+            type: string
+            description: Token factory name
+            example: "TokenFactory"
+          factory_version:
+            type: string
+            description: Token factory version
+            example: "1"
