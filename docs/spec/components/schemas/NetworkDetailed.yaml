@@ -14,6 +14,7 @@ allOf:
           - factory_address
           - factory_name
           - factory_version
+          - first_block
           - token_name
           - token_symbol
         properties:
@@ -22,7 +23,7 @@ allOf:
             description: Network name
             example: "polygon"
           chain_id:
-            type: integer
+            type: int64
             description: Chain id
             example: 5
           rpc_url:
@@ -45,6 +46,10 @@ allOf:
             type: string
             description: Token factory version
             example: "1"
+          first_block:
+            type: int64
+            description: A first block to begin monitoring events
+            example: 12345
           token_name:
             type: string
             description: Native token name

@@ -6,7 +6,7 @@ package resources
 
 type NetworkAttributes struct {
 	// Chain id
-	ChainId int32 `json:"chain_id"`
+	ChainId int64 `json:"chain_id"`
 	// Address of token factory on current network
 	FactoryAddress string `json:"factory_address"`
 	// Network name

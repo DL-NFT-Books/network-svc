@@ -18,7 +18,7 @@ allOf:
             description: Network name
             example: "polygon"
           chain_id:
-            type: integer
+            type: int64
             description: Chain id
             example: 5
           factory_address:

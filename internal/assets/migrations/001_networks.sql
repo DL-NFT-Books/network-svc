@@ -9,6 +9,7 @@ CREATE TABLE networks
     factory_address VARCHAR(42) NOT NULL DEFAULT '',
     factory_name text NOT NULL DEFAULT '',
     factory_version text NOT NULL DEFAULT '',
+    first_block BIGINT NOT NULL DEFAULT 0,
     token_name text NOT NULL DEFAULT '',
     token_symbol text NOT NULL DEFAULT ''
 );

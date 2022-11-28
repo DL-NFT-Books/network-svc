@@ -6,13 +6,15 @@ package resources
 
 type NetworkDetailedAttributes struct {
 	// Chain id
-	ChainId int32 `json:"chain_id"`
+	ChainId int64 `json:"chain_id"`
 	// Address of token factory on current network
 	FactoryAddress string `json:"factory_address"`
 	// Token factory name
 	FactoryName string `json:"factory_name"`
 	// Token factory version
 	FactoryVersion string `json:"factory_version"`
+	// A first block to begin monitoring events
+	FirstBlock int64 `json:"first_block"`
 	// Network name
 	Name string `json:"name"`
 	// RPC url to listen events

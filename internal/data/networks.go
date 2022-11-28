@@ -11,6 +11,7 @@ type Network struct {
 	FactoryAddress    string `db:"factory_address" structs:"factory_address"`
 	FactoryName       string `db:"factory_name" structs:"factory_name"`
 	FactoryVersion    string `db:"factory_version" structs:"factory_version"`
+	FirstBlock        int64  `db:"first_block" structs:"first_block"`
 	NativeTokenName   string `db:"token_name" structs:"token_name"`
 	NativeTokenSymbol string `db:"token_symbol" structs:"token_symbol"`
 }
@@ -30,7 +31,7 @@ func (n *Network) ResourceDefault() resources.Network {
 		Key: resources.NewKeyInt64(n.ID, resources.NETWORKS),
 		Attributes: resources.NetworkAttributes{
 			Name:           n.Name,
-			ChainId:        int32(n.ChainID),
+			ChainId:        n.ChainID,
 			FactoryAddress: n.FactoryAddress,
 			TokenName:      n.NativeTokenName,
 			TokenSymbol:    n.NativeTokenSymbol,
@@ -43,12 +44,13 @@ func (n *Network) ResourceDetailed() resources.NetworkDetailed {
 		Key: resources.NewKeyInt64(n.ID, resources.NETWORKS),
 		Attributes: resources.NetworkDetailedAttributes{
 			Name:           n.Name,
-			ChainId:        int32(n.ChainID),
+			ChainId:        n.ChainID,
 			RpcUrl:         n.RpcUrl,
 			WsUrl:          n.WebSocketURL,
 			FactoryAddress: n.FactoryAddress,
 			FactoryName:    n.FactoryName,
 			FactoryVersion: n.FactoryVersion,
+			FirstBlock:     n.FirstBlock,
 			TokenName:      n.NativeTokenName,
 			TokenSymbol:    n.NativeTokenSymbol,
 		},

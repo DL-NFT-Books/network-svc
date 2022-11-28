@@ -24,7 +24,7 @@ func CreateNetwork(w http.ResponseWriter, r *http.Request) {
 
 	createdNetworkId, err := helpers.NetworksQ(r).Insert(data.Network{
 		Name:              networkData.Name,
-		ChainID:           int64(networkData.ChainId),
+		ChainID:           networkData.ChainId,
 		RpcUrl:            networkData.RpcUrl,
 		WebSocketURL:      networkData.WsUrl,
 		FactoryAddress:    networkData.FactoryAddress,
