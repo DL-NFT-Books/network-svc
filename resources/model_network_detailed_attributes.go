@@ -17,6 +17,10 @@ type NetworkDetailedAttributes struct {
 	Name string `json:"name"`
 	// RPC url to listen events
 	RpcUrl string `json:"rpc_url"`
+	// Native token name
+	TokenName string `json:"token_name"`
+	// Native token symbol
+	TokenSymbol string `json:"token_symbol"`
 	// Websocket url to listen events
 	WsUrl string `json:"ws_url"`
 }

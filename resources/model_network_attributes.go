@@ -11,4 +11,8 @@ type NetworkAttributes struct {
 	FactoryAddress string `json:"factory_address"`
 	// Network name
 	Name string `json:"name"`
+	// Native token name
+	TokenName string `json:"token_name"`
+	// Native token symbol
+	TokenSymbol string `json:"token_symbol"`
 }

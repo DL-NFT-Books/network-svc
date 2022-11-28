@@ -40,6 +40,9 @@ func (r CreateNetworkRequest) validate() error {
 		"data/attributes/factory_name":    validation.Validate(r.Data.Attributes.FactoryName, validation.Required),
 		"data/attributes/factory_version": validation.Validate(r.Data.Attributes.FactoryVersion, validation.Required),
 
+		"data/attributes/token_name":   validation.Validate(r.Data.Attributes.TokenName, validation.Required),
+		"data/attributes/token_symbol": validation.Validate(r.Data.Attributes.TokenSymbol, validation.Required),
+
 		"data/attributes/rpc_url": validation.Validate(r.Data.Attributes.Name, validation.Required),
 		"data/attributes/ws_url":  validation.Validate(r.Data.Attributes.Name, validation.Required),
 	}.Filter()

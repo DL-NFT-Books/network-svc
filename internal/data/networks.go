@@ -3,14 +3,16 @@ package data
 import "gitlab.com/tokend/nft-books/network-svc/resources"
 
 type Network struct {
-	ID             int64  `db:"id" structs:"-"`
-	Name           string `db:"name" structs:"name"`
-	ChainID        int64  `db:"chain_id" structs:"chain_id"`
-	RpcUrl         string `db:"rpc_url" structs:"rpc_url"`
-	WebSocketURL   string `db:"ws_url" structs:"ws_url"`
-	FactoryAddress string `db:"factory_address" structs:"factory_address"`
-	FactoryName    string `db:"factory_name" structs:"factory_name"`
-	FactoryVersion string `db:"factory_version" structs:"factory_version"`
+	ID                int64  `db:"id" structs:"-"`
+	Name              string `db:"name" structs:"name"`
+	ChainID           int64  `db:"chain_id" structs:"chain_id"`
+	RpcUrl            string `db:"rpc_url" structs:"rpc_url"`
+	WebSocketURL      string `db:"ws_url" structs:"ws_url"`
+	FactoryAddress    string `db:"factory_address" structs:"factory_address"`
+	FactoryName       string `db:"factory_name" structs:"factory_name"`
+	FactoryVersion    string `db:"factory_version" structs:"factory_version"`
+	NativeTokenName   string `db:"token_name" structs:"token_name"`
+	NativeTokenSymbol string `db:"token_symbol" structs:"token_symbol"`
 }
 
 type NetworksQ interface {
@@ -30,6 +32,8 @@ func (n *Network) ResourceDefault() resources.Network {
 			Name:           n.Name,
 			ChainId:        int32(n.ChainID),
 			FactoryAddress: n.FactoryAddress,
+			TokenName:      n.NativeTokenName,
+			TokenSymbol:    n.NativeTokenSymbol,
 		},
 	}
 }
@@ -45,6 +49,8 @@ func (n *Network) ResourceDetailed() resources.NetworkDetailed {
 			FactoryAddress: n.FactoryAddress,
 			FactoryName:    n.FactoryName,
 			FactoryVersion: n.FactoryVersion,
+			TokenName:      n.NativeTokenName,
+			TokenSymbol:    n.NativeTokenSymbol,
 		},
 	}
 }

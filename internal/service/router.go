@@ -26,15 +26,16 @@ func (s *service) router(cfg config.Config) chi.Router {
 
 	r.Route("/integrations/networks", func(r chi.Router) {
 		// basic info
-		r.With(middlewares.CheckAccessToken).
-			Post("/", handlers.CreateNetwork)
 		r.Get("/", handlers.GetNetworksDefault)
 
 		r.Route("/{id}", func(r chi.Router) {
 			r.Get("/", handlers.GetNetworkDefaultByChainID)
 		})
 
-		// full info
+		// detailed info
+		r.With(middlewares.CheckAccessToken).
+			Post("/", handlers.CreateNetwork)
+
 		r.With(middlewares.CheckAccessToken).
 			Route("/detailed", func(r chi.Router) {
 				r.Get("/", handlers.GetNetworksDetailed)

@@ -23,13 +23,15 @@ func CreateNetwork(w http.ResponseWriter, r *http.Request) {
 	networkData := request.Data.Attributes
 
 	createdNetworkId, err := helpers.NetworksQ(r).Insert(data.Network{
-		Name:           networkData.Name,
-		ChainID:        int64(networkData.ChainId),
-		RpcUrl:         networkData.RpcUrl,
-		WebSocketURL:   networkData.WsUrl,
-		FactoryAddress: networkData.FactoryAddress,
-		FactoryName:    networkData.FactoryName,
-		FactoryVersion: networkData.FactoryVersion,
+		Name:              networkData.Name,
+		ChainID:           int64(networkData.ChainId),
+		RpcUrl:            networkData.RpcUrl,
+		WebSocketURL:      networkData.WsUrl,
+		FactoryAddress:    networkData.FactoryAddress,
+		FactoryName:       networkData.FactoryName,
+		FactoryVersion:    networkData.FactoryVersion,
+		NativeTokenName:   networkData.TokenName,
+		NativeTokenSymbol: networkData.TokenSymbol,
 	})
 	if err != nil {
 		logger.WithError(err).Debug("failed to insert new network")

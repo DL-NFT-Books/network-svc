@@ -14,6 +14,8 @@ allOf:
           - factory_address
           - factory_name
           - factory_version
+          - token_name
+          - token_symbol
         properties:
           name:
             type: string
@@ -43,3 +45,11 @@ allOf:
             type: string
             description: Token factory version
             example: "1"
+          token_name:
+            type: string
+            description: Native token name
+            example: "Ethereum"
+          token_symbol:
+            type: string
+            description: Native token symbol
+            example: "ETH"

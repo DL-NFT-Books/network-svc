@@ -10,6 +10,8 @@ allOf:
           - name
           - chain_id
           - factory_address
+          - token_name
+          - token_symbol
         properties:
           name:
             type: string
@@ -23,3 +25,11 @@ allOf:
             type: string
             description: Address of token factory on current network
             example: "0x63B703318fbcD1F319a5C0036F9bcd6573c483ba"
+          token_name:
+            type: string
+            description: Native token name
+            example: "Ethereum"
+          token_symbol:
+            type: string
+            description: Native token symbol
+            example: "ETH"
