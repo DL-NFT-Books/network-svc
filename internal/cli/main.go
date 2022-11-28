@@ -30,7 +30,7 @@ func Run(args []string) bool {
 	migrateUpCmd := migrateCmd.Command("up", "migrate db up")
 	migrateDownCmd := migrateCmd.Command("down", "migrate db down")
 
-	// custom commands go here...
+	// custom commands go here..
 
 	cmd, err := app.Parse(args[1:])
 	if err != nil {
