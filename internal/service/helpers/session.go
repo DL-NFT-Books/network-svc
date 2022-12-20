@@ -13,8 +13,7 @@ func Authorization(r *http.Request, resourceOwner string) error {
 		return errors.New("invalid token")
 	}
 
-	err = doorman.CheckPermission(resourceOwner, token)
-	if err != nil {
+	if err = doorman.CheckPermission(resourceOwner, token); err != nil {
 		return errors.New("user does not have permission")
 	}
 	return nil

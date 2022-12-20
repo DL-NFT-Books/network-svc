@@ -29,7 +29,7 @@ func GetNetworks(w http.ResponseWriter, r *http.Request) []data.Network {
 
 	networks, err := helpers.NetworksQ(r).Select()
 	if err != nil {
-		logger.WithError(err).Debug("failed to get networks")
+		logger.WithError(err).Error("failed to get networks")
 		ape.RenderErr(w, problems.InternalError())
 	}
 

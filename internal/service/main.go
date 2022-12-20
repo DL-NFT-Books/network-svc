@@ -38,6 +38,6 @@ func newService(cfg config.Config) *service {
 
 func Run(cfg config.Config) {
 	if err := newService(cfg).run(cfg); err != nil {
-		panic(err)
+		panic(errors.Wrap(err, "failed to run a service"))
 	}
 }
