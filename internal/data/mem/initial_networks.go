@@ -14,7 +14,6 @@ const yamlInitialNetworksKey = "initial-networks"
 
 type InitialNetworker interface {
 	InitialNetworks() []data.Network
-	IsDisable() bool
 }
 
 type initialNetworker struct {
@@ -22,7 +21,6 @@ type initialNetworker struct {
 	once   comfig.Once
 
 	initialNetworks []data.Network
-	isDisable       bool
 }
 
 func NewInitialNetworker(getter kv.Getter) InitialNetworker {
@@ -36,16 +34,10 @@ func (in *initialNetworker) InitialNetworks() []data.Network {
 	return in.initialNetworks
 }
 
-func (in *initialNetworker) IsDisable() bool {
-	in.readConfig()
-	return in.isDisable
-}
-
 func (in *initialNetworker) readConfig() {
 	in.once.Do(func() interface{} {
 		cfg := struct {
-			InitialNetworks []data.Network `fig:"data,required"`
-			IsDisable       bool           `fig:"disable,required"`
+			InitialNetworks []data.Network `fig:"data"`
 		}{}
 		err := figure.
 			Out(&cfg).
@@ -55,9 +47,7 @@ func (in *initialNetworker) readConfig() {
 		if err != nil {
 			panic(errors.Wrap(err, "failed to figure out signer"))
 		}
-		if !cfg.IsDisable {
-			in.initialNetworks = cfg.InitialNetworks
-		}
+		in.initialNetworks = cfg.InitialNetworks
 
 		return nil
 	})
@@ -67,7 +57,7 @@ var topHooks = figure.Hooks{
 	"[]data.Network": func(value interface{}) (reflect.Value, error) {
 		switch s := value.(type) {
 		case []interface{}:
-			chains := make([]data.Network, 0, len(s))
+			networks := make([]data.Network, 0, len(s))
 			var err error
 			for _, rawElem := range s {
 				mapElem, ok := rawElem.(map[interface{}]interface{})
@@ -92,10 +82,10 @@ var topHooks = figure.Hooks{
 					return reflect.Value{}, errors.Wrap(err, "failed to figure out")
 				}
 
-				chains = append(chains, data)
+				networks = append(networks, data)
 			}
 
-			return reflect.ValueOf(chains), nil
+			return reflect.ValueOf(networks), nil
 		default:
 			return reflect.Value{}, errors.New("unexpected type while figure []data.Network")
 		}

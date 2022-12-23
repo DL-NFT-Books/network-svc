@@ -19,7 +19,7 @@ func (s *service) router(cfg config.Config) chi.Router {
 		ape.LoganMiddleware(s.log),
 		ape.CtxMiddleware(
 			helpers.CtxLog(s.log),
-			helpers.CtxNetworksQ(postgres.NewNetworksQ(cfg.DB(), cfg.InitialNetworks()...)),
+			helpers.CtxNetworksQ(postgres.NewNetworksQ(cfg.DB())),
 			helpers.CtxDoormanConnector(cfg.DoormanConnector()),
 		),
 	)

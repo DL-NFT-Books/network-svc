@@ -1,6 +1,10 @@
 package data
 
-import "gitlab.com/tokend/nft-books/network-svc/resources"
+import (
+	"github.com/ethereum/go-ethereum/ethclient"
+	"gitlab.com/tokend/nft-books/network-svc/connector/models"
+	"gitlab.com/tokend/nft-books/network-svc/resources"
+)
 
 type Network struct {
 	ID                int64  `db:"id" structs:"-"`
@@ -20,6 +24,7 @@ type NetworksQ interface {
 	New() NetworksQ
 
 	Insert(data Network) (id int64, err error)
+	InitNetworksQ(init []Network) error
 	Get() (*Network, error)
 	Select() ([]Network, error)
 
@@ -55,4 +60,27 @@ func (n *Network) ResourceDetailed() resources.NetworkDetailed {
 			TokenSymbol:    n.NativeTokenSymbol,
 		},
 	}
+}
+
+func (n *Network) ModelDetailed() (*models.NetworkResponse, error) {
+	rpc, err := ethclient.Dial(n.RpcUrl)
+	if err != nil {
+		return nil, err
+	}
+	ws, err := ethclient.Dial(n.WebSocketURL)
+	if err != nil {
+		return nil, err
+	}
+	return &models.NetworkResponse{
+		Name:           n.Name,
+		ChainId:        n.ChainID,
+		RpcUrl:         rpc,
+		WsUrl:          ws,
+		FactoryAddress: n.FactoryAddress,
+		FactoryName:    n.FactoryName,
+		FactoryVersion: n.FactoryVersion,
+		FirstBlock:     n.FirstBlock,
+		TokenName:      n.NativeTokenName,
+		TokenSymbol:    n.NativeTokenSymbol,
+	}, nil
 }

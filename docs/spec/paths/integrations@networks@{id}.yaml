@@ -12,6 +12,7 @@ get:
   operationId: getNetwork
   parameters:
   responses:
+
     '200':
       description: Success
       content:
