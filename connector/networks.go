@@ -67,11 +67,11 @@ func (c *Connector) GetNetworkByChainID(chainID int64) (*models.NetworkResponse,
 
 	return result.ModelDefault()
 }
-func (c *Connector) GetNetworks() (*models.NetworkListResponse, error) {
-	var result []data.Network
+func (c *Connector) GetNetworks() (*models.NetworkDetailedListResponse, error) {
+	var result models.NetworkDetailedListResponse
 
 	// setting full endpoint
-	fullEndpoint := fmt.Sprintf("%s/%s", c.baseUrl, networksEndpoint)
+	fullEndpoint := fmt.Sprintf("%s/%s", c.baseUrl, networksDetailedEndpoint)
 
 	// getting response
 	if err := c.get(fullEndpoint, &result); err != nil {
@@ -79,15 +79,5 @@ func (c *Connector) GetNetworks() (*models.NetworkListResponse, error) {
 		return nil, err
 	}
 
-	var networks models.NetworkListResponse
-
-	for _, net := range result {
-		modelNet, err := net.ModelDefault()
-		if err != nil {
-			return nil, err
-		}
-		networks.Data = append(networks.Data, *modelNet)
-	}
-
-	return &networks, nil
+	return &result, nil
 }
