@@ -6,6 +6,7 @@ import (
 	"github.com/fatih/structs"
 	"gitlab.com/distributed_lab/kit/pgdb"
 	"gitlab.com/tokend/nft-books/network-svc/internal/data"
+	"log"
 )
 
 const (
@@ -86,7 +87,8 @@ func (n *NetworksQ) Select() ([]data.Network, error) {
 	var result []data.Network
 
 	err := n.db.Select(&result, n.selectBuilder)
-
+	log.Println("n.selectBuilder.ToSql()")
+	log.Println(n.selectBuilder.ToSql())
 	return result, err
 }
 
