@@ -55,7 +55,7 @@ func (c *Connector) GetNetworksDetailed() (*models.NetworkDetailedListResponse, 
 
 	// setting full endpoint
 	fullEndpoint := fmt.Sprintf("%s/%s", c.baseUrl, networksDetailedEndpoint)
-
+	log.Println("NETWORK CHAIN FULL ENDPOINT", fullEndpoint)
 	// getting response
 	if err := c.get(fullEndpoint, &result); err != nil {
 		// errors are already wrapped
