@@ -64,12 +64,12 @@ func (c *Connector) GetNetworksDetailed() (*models.NetworkDetailedListResponse, 
 
 	networks := make([]models.NetworkDetailedResponse, len(result.Data))
 
-	for _, network := range result.Data {
+	for i, network := range result.Data {
 		netAsModel, err := models.NewDetailedFromResources(network)
 		if err != nil {
 			return nil, err
 		}
-		networks = append(networks, *netAsModel)
+		networks[i] = *netAsModel
 	}
 
 	return &models.NetworkDetailedListResponse{
