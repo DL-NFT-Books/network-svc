@@ -2,6 +2,7 @@ package models
 
 import (
 	"github.com/ethereum/go-ethereum/ethclient"
+	"gitlab.com/tokend/nft-books/network-svc/resources"
 )
 
 type NetworkDetailedResponse struct {
@@ -29,4 +30,27 @@ type NetworkListResponse struct {
 }
 type NetworkDetailedListResponse struct {
 	Data []NetworkDetailedResponse `json:"data"`
+}
+
+func NewDetailedFromResources(n resources.NetworkDetailed) (*NetworkDetailedResponse, error) {
+	rpc, err := ethclient.Dial(n.Attributes.RpcUrl)
+	if err != nil {
+		return nil, err
+	}
+	ws, err := ethclient.Dial(n.Attributes.WsUrl)
+	if err != nil {
+		return nil, err
+	}
+	return &NetworkDetailedResponse{
+		Name:           n.Attributes.Name,
+		ChainId:        n.Attributes.ChainId,
+		RpcUrl:         rpc,
+		WsUrl:          ws,
+		FactoryAddress: n.Attributes.FactoryAddress,
+		FactoryName:    n.Attributes.FactoryName,
+		FactoryVersion: n.Attributes.FactoryVersion,
+		FirstBlock:     n.Attributes.FirstBlock,
+		TokenName:      n.Attributes.TokenName,
+		TokenSymbol:    n.Attributes.TokenSymbol,
+	}, nil
 }

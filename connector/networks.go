@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"gitlab.com/tokend/nft-books/network-svc/connector/models"
-	"gitlab.com/tokend/nft-books/network-svc/internal/data"
 	"gitlab.com/tokend/nft-books/network-svc/resources"
 	"log"
 )
@@ -50,25 +49,9 @@ func (c *Connector) GetNetworkDetailedByChainID(chainID int64) (*models.NetworkD
 		TokenSymbol:    result.Data.Attributes.TokenSymbol,
 	}, nil
 }
-func (c *Connector) GetNetworkByChainID(chainID int64) (*models.NetworkResponse, error) {
-	var result data.Network
 
-	// setting full endpoint
-	fullEndpoint := fmt.Sprintf("%s/%s/%v", c.baseUrl, networksEndpoint, chainID)
-	log.Println("NETWORK CHAIN FULL ENDPOINT", fullEndpoint)
-	log.Println("NETWORK CHAIN ID", chainID)
-	// getting response
-	if err := c.get(fullEndpoint, &result); err != nil {
-		// errors are already wrapped
-		log.Println("NET ERR", err)
-		return nil, err
-	}
-	log.Println("NET RES", result)
-
-	return result.ModelDefault()
-}
-func (c *Connector) GetNetworks() (*models.NetworkDetailedListResponse, error) {
-	var result models.NetworkDetailedListResponse
+func (c *Connector) GetNetworksDetailed() (*models.NetworkDetailedListResponse, error) {
+	var result resources.NetworkDetailedListResponse
 
 	// setting full endpoint
 	fullEndpoint := fmt.Sprintf("%s/%s", c.baseUrl, networksDetailedEndpoint)
@@ -79,5 +62,17 @@ func (c *Connector) GetNetworks() (*models.NetworkDetailedListResponse, error) {
 		return nil, err
 	}
 
-	return &result, nil
+	networks := make([]models.NetworkDetailedResponse, len(result.Data))
+
+	for _, network := range result.Data {
+		netAsModel, err := models.NewDetailedFromResources(network)
+		if err != nil {
+			return nil, err
+		}
+		networks = append(networks, *netAsModel)
+	}
+
+	return &models.NetworkDetailedListResponse{
+		Data: networks,
+	}, nil
 }

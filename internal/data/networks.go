@@ -1,8 +1,6 @@
 package data
 
 import (
-	"github.com/ethereum/go-ethereum/ethclient"
-	"gitlab.com/tokend/nft-books/network-svc/connector/models"
 	"gitlab.com/tokend/nft-books/network-svc/resources"
 )
 
@@ -60,36 +58,4 @@ func (n *Network) ResourceDetailed() resources.NetworkDetailed {
 			TokenSymbol:    n.NativeTokenSymbol,
 		},
 	}
-}
-
-func (n *Network) ModelDetailed() (*models.NetworkDetailedResponse, error) {
-	rpc, err := ethclient.Dial(n.RpcUrl)
-	if err != nil {
-		return nil, err
-	}
-	ws, err := ethclient.Dial(n.WebSocketURL)
-	if err != nil {
-		return nil, err
-	}
-	return &models.NetworkDetailedResponse{
-		Name:           n.Name,
-		ChainId:        n.ChainID,
-		RpcUrl:         rpc,
-		WsUrl:          ws,
-		FactoryAddress: n.FactoryAddress,
-		FactoryName:    n.FactoryName,
-		FactoryVersion: n.FactoryVersion,
-		FirstBlock:     n.FirstBlock,
-		TokenName:      n.NativeTokenName,
-		TokenSymbol:    n.NativeTokenSymbol,
-	}, nil
-}
-func (n *Network) ModelDefault() (*models.NetworkResponse, error) {
-	return &models.NetworkResponse{
-		Name:           n.Name,
-		ChainId:        n.ChainID,
-		FactoryAddress: n.FactoryAddress,
-		TokenName:      n.NativeTokenName,
-		TokenSymbol:    n.NativeTokenSymbol,
-	}, nil
 }
