@@ -1,8 +1,6 @@
 package handlers
 
 import (
-	"fmt"
-	"github.com/ethereum/go-ethereum/ethclient"
 	"net/http"
 
 	"gitlab.com/distributed_lab/ape"
@@ -18,12 +16,6 @@ func GetNetworkDefaultByChainID(w http.ResponseWriter, r *http.Request) {
 	if network == nil {
 		return
 	}
-	fmt.Println(network.WebSocketURL)
-	ws, err := ethclient.Dial(network.WebSocketURL)
-	if err != nil {
-		fmt.Println("ws", err)
-	}
-	fmt.Println(ws)
 	ape.Render(w, resources.NetworkResponse{
 		Data: network.ResourceDefault(),
 	})

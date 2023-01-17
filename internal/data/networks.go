@@ -38,6 +38,7 @@ func (n *Network) ResourceDefault() resources.Network {
 			FactoryAddress: n.FactoryAddress,
 			TokenName:      n.NativeTokenName,
 			TokenSymbol:    n.NativeTokenSymbol,
+			RpcUrl:         n.RpcUrl,
 		},
 	}
 }

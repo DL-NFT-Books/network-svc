@@ -12,6 +12,7 @@ allOf:
           - factory_address
           - token_name
           - token_symbol
+          - rpc_url
         properties:
           name:
             type: string
@@ -33,3 +34,7 @@ allOf:
             type: string
             description: Native token symbol
             example: "ETH"
+          rpc_url:
+            type: string
+            description: RPC url to listen events
+            example: "https://eth-goerli.g.alchemy.com/v2/..."
