@@ -33,7 +33,8 @@ func (n *NetworksQ) InitNetworksQ(init []data.Network) error {
 		"factory_version",
 		"first_block",
 		"token_name",
-		"token_symbol")
+		"token_symbol",
+		"decimals")
 	for _, network := range init {
 		stmt = stmt.Values(
 			network.Name,
@@ -45,7 +46,8 @@ func (n *NetworksQ) InitNetworksQ(init []data.Network) error {
 			network.FactoryVersion,
 			network.FirstBlock,
 			network.NativeTokenName,
-			network.NativeTokenSymbol)
+			network.NativeTokenSymbol,
+			network.Decimals)
 	}
 	return n.db.Exec(stmt)
 }
