@@ -40,7 +40,6 @@ func (n *Network) ResourceDefault() resources.Network {
 			TokenName:      n.NativeTokenName,
 			TokenSymbol:    n.NativeTokenSymbol,
 			Decimals:       n.Decimals,
-			RpcUrl:         n.RpcUrl,
 		},
 	}
 }

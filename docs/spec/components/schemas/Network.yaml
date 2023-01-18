@@ -39,7 +39,3 @@ allOf:
             type: int64
             description: decimal
             example: 5
-          rpc_url:
-            type: string
-            description: RPC url to listen events
-            example: "https://eth-goerli.g.alchemy.com/v2/..."
