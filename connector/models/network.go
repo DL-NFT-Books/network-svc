@@ -54,6 +54,6 @@ func NewDetailedFromResources(n resources.NetworkDetailed) (*NetworkDetailedResp
 		FirstBlock:     n.Attributes.FirstBlock,
 		TokenName:      n.Attributes.TokenName,
 		TokenSymbol:    n.Attributes.TokenSymbol,
-		Decimals:       n.Attributes.Decimals
+		Decimals:       n.Attributes.Decimals,
 	}, nil
 }
