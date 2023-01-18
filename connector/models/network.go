@@ -15,6 +15,7 @@ type NetworkDetailedResponse struct {
 	RpcUrl         *ethclient.Client `json:"rpc_url"`
 	TokenName      string            `json:"token_name"`
 	TokenSymbol    string            `json:"token_symbol"`
+	Decimals       int64             `json:"decimals"`
 	WsUrl          *ethclient.Client `json:"ws_url"`
 }
 
@@ -24,6 +25,7 @@ type NetworkResponse struct {
 	Name           string `json:"name"`
 	TokenName      string `json:"token_name"`
 	TokenSymbol    string `json:"token_symbol"`
+	Decimals       int64  `json:"decimals"`
 }
 type NetworkListResponse struct {
 	Data []NetworkResponse `json:"data"`
@@ -52,5 +54,6 @@ func NewDetailedFromResources(n resources.NetworkDetailed) (*NetworkDetailedResp
 		FirstBlock:     n.Attributes.FirstBlock,
 		TokenName:      n.Attributes.TokenName,
 		TokenSymbol:    n.Attributes.TokenSymbol,
+		Decimals:       n.Attributes.Decimals,
 	}, nil
 }

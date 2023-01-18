@@ -11,7 +11,8 @@ CREATE TABLE networks
     factory_version text NOT NULL DEFAULT '',
     first_block BIGINT NOT NULL DEFAULT 0,
     token_name text NOT NULL DEFAULT '',
-    token_symbol text NOT NULL DEFAULT ''
+    token_symbol text NOT NULL DEFAULT '',
+    decimal BIGINT NOT NULL DEFAULT 0,
 );
 CREATE UNIQUE INDEX idx_networks_chain_id ON networks (chain_id);
 

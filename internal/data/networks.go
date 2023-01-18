@@ -16,6 +16,7 @@ type Network struct {
 	FirstBlock        int64  `db:"first_block" structs:"first_block"`
 	NativeTokenName   string `db:"token_name" structs:"token_name"`
 	NativeTokenSymbol string `db:"token_symbol" structs:"token_symbol"`
+	Decimals          int64  `db:"decimals" structs:"decimals"`
 }
 
 type NetworksQ interface {
@@ -38,6 +39,7 @@ func (n *Network) ResourceDefault() resources.Network {
 			FactoryAddress: n.FactoryAddress,
 			TokenName:      n.NativeTokenName,
 			TokenSymbol:    n.NativeTokenSymbol,
+			Decimals:       n.Decimals,
 			RpcUrl:         n.RpcUrl,
 		},
 	}
@@ -57,6 +59,7 @@ func (n *Network) ResourceDetailed() resources.NetworkDetailed {
 			FirstBlock:     n.FirstBlock,
 			TokenName:      n.NativeTokenName,
 			TokenSymbol:    n.NativeTokenSymbol,
+			Decimals:       n.Decimals,
 		},
 	}
 }

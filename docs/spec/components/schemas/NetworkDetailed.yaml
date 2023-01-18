@@ -17,6 +17,7 @@ allOf:
           - first_block
           - token_name
           - token_symbol
+          - decimals
         properties:
           name:
             type: string
@@ -58,3 +59,7 @@ allOf:
             type: string
             description: Native token symbol
             example: "ETH"
+          decimals:
+            type: int64
+            description: decimal
+            example: 5

@@ -12,6 +12,7 @@ allOf:
           - factory_address
           - token_name
           - token_symbol
+          - decimals
           - rpc_url
         properties:
           name:
@@ -34,6 +35,10 @@ allOf:
             type: string
             description: Native token symbol
             example: "ETH"
+          decimals:
+            type: int64
+            description: decimal
+            example: 5
           rpc_url:
             type: string
             description: RPC url to listen events
