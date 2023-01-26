@@ -32,6 +32,7 @@ func CreateNetwork(w http.ResponseWriter, r *http.Request) {
 		FactoryVersion:    networkData.FactoryVersion,
 		NativeTokenName:   networkData.TokenName,
 		NativeTokenSymbol: networkData.TokenSymbol,
+		Decimals:          networkData.Decimals,
 	})
 	if err != nil {
 		logger.WithError(err).Debug("failed to insert new network")

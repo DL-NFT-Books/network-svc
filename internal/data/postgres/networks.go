@@ -4,7 +4,9 @@ import (
 	"database/sql"
 	"github.com/Masterminds/squirrel"
 	"github.com/fatih/structs"
+	"github.com/pkg/errors"
 	"gitlab.com/distributed_lab/kit/pgdb"
+	"gitlab.com/distributed_lab/logan/v3"
 	"gitlab.com/tokend/nft-books/network-svc/internal/data"
 	"log"
 )
@@ -21,7 +23,15 @@ func NewNetworksQ(db *pgdb.DB) data.NetworksQ {
 	}
 }
 
-func (n *NetworksQ) InitNetworksQ(init []data.Network) error {
+func (n *NetworksQ) InitNetworksQ(init []data.Network, log *logan.Entry) error {
+	res, err := n.Get()
+	if err != nil {
+		return errors.Wrap(err, "failed to check if networks exists")
+	}
+	if res != nil {
+		log.Warn("network db is already init")
+		return nil
+	}
 	stmt := squirrel.
 		Insert(networksTableName).Columns(
 		"name",

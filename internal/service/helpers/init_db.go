@@ -24,7 +24,7 @@ func NewInitDBer(cfg config.Config) *InitBDer {
 func (i *InitBDer) Run() error {
 	i.logger.Info("Start to initial database")
 	if len(i.initData) > 0 {
-		return i.networksQ.InitNetworksQ(i.initData)
+		return i.networksQ.InitNetworksQ(i.initData, i.logger)
 		i.logger.Info("Successfully init")
 	}
 	i.logger.Info("No data to init")
