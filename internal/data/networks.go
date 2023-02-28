@@ -1,7 +1,6 @@
 package data
 
 import (
-	"gitlab.com/distributed_lab/logan/v3"
 	"gitlab.com/tokend/nft-books/network-svc/resources"
 )
 
@@ -23,8 +22,7 @@ type Network struct {
 type NetworksQ interface {
 	New() NetworksQ
 
-	Insert(data Network) (id int64, err error)
-	InitNetworksQ(init []Network, log *logan.Entry) error
+	Insert(data ...Network) (id []int64, err error)
 	Get() (*Network, error)
 	Select() ([]Network, error)
 

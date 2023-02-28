@@ -40,7 +40,7 @@ func CreateNetwork(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	request.Data.Key = resources.NewKeyInt64(createdNetworkId, resources.NETWORKS)
+	request.Data.Key = resources.NewKeyInt64(createdNetworkId[0], resources.NETWORKS)
 	ape.Render(w, resources.NetworkDetailedResponse{
 		Data: request.Data,
 	})

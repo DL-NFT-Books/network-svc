@@ -1,6 +1,7 @@
 package helpers
 
 import (
+	"github.com/pkg/errors"
 	"gitlab.com/distributed_lab/logan/v3"
 	"gitlab.com/tokend/nft-books/network-svc/internal/config"
 	"gitlab.com/tokend/nft-books/network-svc/internal/data"
@@ -24,8 +25,21 @@ func NewInitDBer(cfg config.Config) *InitBDer {
 func (i *InitBDer) Run() error {
 	i.logger.Info("Start to initial database")
 	if len(i.initData) > 0 {
-		return i.networksQ.InitNetworksQ(i.initData, i.logger)
+		networks, err := i.networksQ.Select()
+		if err != nil {
+			return errors.Wrap(err, "failed to get networks")
+		}
+		// If the database is already initialized skipping initializing
+		if len(networks) > 0 {
+			i.logger.Info("DB is already initialized")
+			return nil
+		}
+		if _, err := i.networksQ.Insert(i.initData...); err != nil {
+			return err
+		}
+
 		i.logger.Info("Successfully init")
+		return nil
 	}
 	i.logger.Info("No data to init")
 	return nil
