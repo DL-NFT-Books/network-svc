@@ -1,0 +1,30 @@
+parameters:
+  - name: id
+    in: path
+    description: Chain identifier
+    required: true
+    schema:
+      type: integer
+get:
+  tags:
+    - Networks
+  summary: Get Network
+  operationId: getNetwork
+  parameters:
+  responses:
+
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Network'
+    '400':
+      $ref: '#/components/responses/BadRequestError'
+    '404':
+      $ref: '#/components/schemas/NotFoundError'
+    '500':
+      $ref: '#/components/schemas/InternalError'

@@ -1,0 +1,21 @@
+get:
+  tags:
+    - Networks
+  summary: List Networks with details
+  operationId: getNetworksDetailedList
+  parameters:
+    - $ref: '#/components/parameters/AuthParam'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NetworkDetailed'
+    '500':
+      $ref: '#/components/schemas/InternalError'

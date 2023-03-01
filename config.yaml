@@ -1,0 +1,43 @@
+log:
+  level: debug
+  disable_sentry: true
+
+db:
+  url: db_url
+
+listener:
+  addr: :8000
+
+initial-networks:
+  disable: true
+  data:
+    - name: polygon
+      chain_id: 1
+      rpc_url: rpc_url
+      ws_url: websocket_url
+      factory_address: factory_address
+      factory_name: factory_name
+      factory_version: factory_version
+      first_block: 1
+      native_token_name: token_name
+      native_token_symbol: t
+    - name: ether
+      chain_id: 2
+      rpc_url: rpc_url
+      ws_url: websocket_url
+      factory_address: factory_address
+      factory_name: factory_name
+      factory_version: factory_version
+      first_block: 1
+      native_token_name: token_name
+      native_token_symbol: t
+
+doorman:
+  service_url: http://localhost:8054/integrations/doorman
+
+cop:
+  disabled: true
+  endpoint: "http://..."
+  upstream: "http://..."
+  service_name: network-svc
+  service_port: 80

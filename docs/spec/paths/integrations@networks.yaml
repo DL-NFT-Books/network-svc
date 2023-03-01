@@ -1,0 +1,53 @@
+post:
+  tags:
+    - Networks
+  summary: Create new network
+  operationId: createNetwork
+  parameters:
+    - $ref: '#/components/parameters/AuthParam'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: object
+              $ref: '#/components/schemas/NetworkDetailed'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                $ref: '#/components/schemas/NetworkDetailed'
+    '400':
+      $ref: '#/components/responses/BadRequestError'
+    '401':
+      $ref: "#/components/schemas/UnauthorizedError"
+    '500':
+      $ref: '#/components/schemas/InternalError'
+get:
+  tags:
+    - Networks
+  summary: List Networks
+  operationId: getNetworksList
+  parameters:
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Network'
+    '500':
+      $ref: '#/components/schemas/InternalError'
