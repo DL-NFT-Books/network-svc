@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"gitlab.com/distributed_lab/logan/v3"
-	"gitlab.com/tokend/nft-books/network-svc/internal/config"
+	"github.com/dl-nft-books/network-svc/internal/config"
 
 	"gitlab.com/distributed_lab/kit/copus/types"
 	"gitlab.com/distributed_lab/logan/v3/errors"

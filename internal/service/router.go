@@ -1,11 +1,11 @@
 package service
 
 import (
-	"gitlab.com/tokend/nft-books/network-svc/internal/config"
-	"gitlab.com/tokend/nft-books/network-svc/internal/data/postgres"
-	"gitlab.com/tokend/nft-books/network-svc/internal/service/handlers"
-	"gitlab.com/tokend/nft-books/network-svc/internal/service/helpers"
-	"gitlab.com/tokend/nft-books/network-svc/internal/service/middlewares"
+	"github.com/dl-nft-books/network-svc/internal/config"
+	"github.com/dl-nft-books/network-svc/internal/data/postgres"
+	"github.com/dl-nft-books/network-svc/internal/service/handlers"
+	"github.com/dl-nft-books/network-svc/internal/service/helpers"
+	"github.com/dl-nft-books/network-svc/internal/service/middlewares"
 
 	"github.com/go-chi/chi"
 	"gitlab.com/distributed_lab/ape"

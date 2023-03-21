@@ -1,18 +1,16 @@
 parameters:
   - name: id
     in: path
-    description: Chain identifier
     required: true
     schema:
       type: integer
+      description: Chain identifier
 get:
   tags:
     - Networks
   summary: Get Network
   operationId: getNetwork
-  parameters:
   responses:
-
     '200':
       description: Success
       content:

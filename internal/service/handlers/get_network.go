@@ -5,10 +5,10 @@ import (
 
 	"gitlab.com/distributed_lab/ape"
 	"gitlab.com/distributed_lab/ape/problems"
-	"gitlab.com/tokend/nft-books/network-svc/internal/data"
-	"gitlab.com/tokend/nft-books/network-svc/internal/service/helpers"
-	"gitlab.com/tokend/nft-books/network-svc/internal/service/requests"
-	"gitlab.com/tokend/nft-books/network-svc/resources"
+	"github.com/dl-nft-books/network-svc/internal/data"
+	"github.com/dl-nft-books/network-svc/internal/service/helpers"
+	"github.com/dl-nft-books/network-svc/internal/service/requests"
+	"github.com/dl-nft-books/network-svc/resources"
 )
 
 func GetNetworkDefaultByChainID(w http.ResponseWriter, r *http.Request) {

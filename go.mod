@@ -1,4 +1,4 @@
-module gitlab.com/tokend/nft-books/network-svc
+module github.com/dl-nft-books/network-svc
 
 go 1.18
 

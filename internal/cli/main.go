@@ -2,9 +2,9 @@ package cli
 
 import (
 	"gitlab.com/distributed_lab/logan/v3"
-	"gitlab.com/tokend/nft-books/network-svc/internal/config"
-	"gitlab.com/tokend/nft-books/network-svc/internal/service"
-	"gitlab.com/tokend/nft-books/network-svc/internal/service/helpers"
+	"github.com/dl-nft-books/network-svc/internal/config"
+	"github.com/dl-nft-books/network-svc/internal/service"
+	"github.com/dl-nft-books/network-svc/internal/service/helpers"
 
 	"github.com/alecthomas/kingpin"
 	"gitlab.com/distributed_lab/kit/kv"

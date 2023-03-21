@@ -2,11 +2,11 @@ FROM golang:1.18-alpine as buildbase
 
 RUN apk add git build-base
 
-WORKDIR /go/src/gitlab.com/tokend/nft-books/network-svc
+WORKDIR /go/src/github.com/dl-nft-books/network-svc
 COPY vendor .
 COPY . .
 
-RUN GOOS=linux go build  -o /usr/local/bin/network-svc /go/src/gitlab.com/tokend/nft-books/network-svc
+RUN GOOS=linux go build  -o /usr/local/bin/network-svc /go/src/github.com/dl-nft-books/network-svc
 
 
 FROM alpine:3.9

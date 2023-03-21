@@ -12,7 +12,6 @@ post:
           type: object
           properties:
             data:
-              type: object
               $ref: '#/components/schemas/NetworkDetailed'
   responses:
     '200':
@@ -23,12 +22,11 @@ post:
             type: object
             properties:
               data:
-                type: object
                 $ref: '#/components/schemas/NetworkDetailed'
     '400':
       $ref: '#/components/responses/BadRequestError'
     '401':
-      $ref: "#/components/schemas/UnauthorizedError"
+      $ref: '#/components/schemas/UnauthorizedError'
     '500':
       $ref: '#/components/schemas/InternalError'
 get:
@@ -36,7 +34,6 @@ get:
     - Networks
   summary: List Networks
   operationId: getNetworksList
-  parameters:
   responses:
     '200':
       description: Success

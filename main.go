@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"gitlab.com/tokend/nft-books/network-svc/internal/cli"
+	"github.com/dl-nft-books/network-svc/internal/cli"
 )
 
 func main() {

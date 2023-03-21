@@ -1,3 +1,10 @@
+parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: integer
+      description: Chain identifier
 get:
   tags:
     - Networks

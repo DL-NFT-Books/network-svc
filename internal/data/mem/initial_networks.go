@@ -6,7 +6,7 @@ import (
 	"gitlab.com/distributed_lab/figure"
 	"gitlab.com/distributed_lab/kit/comfig"
 	"gitlab.com/distributed_lab/kit/kv"
-	"gitlab.com/tokend/nft-books/network-svc/internal/data"
+	"github.com/dl-nft-books/network-svc/internal/data"
 	"reflect"
 )
 

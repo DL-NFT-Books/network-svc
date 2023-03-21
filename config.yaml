@@ -32,8 +32,9 @@ initial-networks:
       native_token_name: token_name
       native_token_symbol: t
 
-doorman:
-  service_url: http://localhost:8054/integrations/doorman
+connector:
+  url: http://traefik/integrations
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZGRyZXNzIjoiMHg0MDk3NDhkZmIzMWNhMTQyNGQxMzE2NjM5MThjN2E0NWYyZWE2NTA3IiwicHVycG9zZSI6InNlc3Npb24iLCJleHAiOjMyODY4MDU0NzR9.5Z7FBn4UrgjaNNOGSy0j98cb3M9san4A8kvGzq98Fsg
 
 cop:
   disabled: true
