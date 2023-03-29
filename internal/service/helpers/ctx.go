@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"gitlab.com/distributed_lab/logan/v3"
-	"gitlab.com/tokend/nft-books/doorman/connector"
+	"github.com/dl-nft-books/doorman/connector"
 	"github.com/dl-nft-books/network-svc/internal/data"
 )
 
