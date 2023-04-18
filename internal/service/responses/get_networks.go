@@ -1,8 +1,8 @@
 package responses
 
 import (
-	"gitlab.com/tokend/nft-books/network-svc/internal/data"
-	"gitlab.com/tokend/nft-books/network-svc/resources"
+	"github.com/dl-nft-books/network-svc/internal/data"
+	"github.com/dl-nft-books/network-svc/resources"
 )
 
 func NewGetNetworksDefaultResponse(data []data.Network) resources.NetworkListResponse {

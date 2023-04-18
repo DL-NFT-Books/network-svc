@@ -6,8 +6,8 @@ import (
 	"gitlab.com/distributed_lab/kit/copus/types"
 	"gitlab.com/distributed_lab/kit/kv"
 	"gitlab.com/distributed_lab/kit/pgdb"
-	doormanCfg "gitlab.com/tokend/nft-books/doorman/connector/config"
-	"gitlab.com/tokend/nft-books/network-svc/internal/data/mem"
+	doormanCfg "github.com/dl-nft-books/doorman/connector/config"
+	"github.com/dl-nft-books/network-svc/internal/data/mem"
 )
 
 type Config interface {

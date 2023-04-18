@@ -3,9 +3,9 @@ package helpers
 import (
 	"github.com/pkg/errors"
 	"gitlab.com/distributed_lab/logan/v3"
-	"gitlab.com/tokend/nft-books/network-svc/internal/config"
-	"gitlab.com/tokend/nft-books/network-svc/internal/data"
-	"gitlab.com/tokend/nft-books/network-svc/internal/data/postgres"
+	"github.com/dl-nft-books/network-svc/internal/config"
+	"github.com/dl-nft-books/network-svc/internal/data"
+	"github.com/dl-nft-books/network-svc/internal/data/postgres"
 )
 
 type InitBDer struct {

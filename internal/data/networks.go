@@ -1,7 +1,7 @@
 package data
 
 import (
-	"gitlab.com/tokend/nft-books/network-svc/resources"
+	"github.com/dl-nft-books/network-svc/resources"
 )
 
 type Network struct {

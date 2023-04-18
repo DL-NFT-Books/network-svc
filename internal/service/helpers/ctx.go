@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"gitlab.com/distributed_lab/logan/v3"
-	"gitlab.com/tokend/nft-books/doorman/connector"
-	"gitlab.com/tokend/nft-books/network-svc/internal/data"
+	"github.com/dl-nft-books/doorman/connector"
+	"github.com/dl-nft-books/network-svc/internal/data"
 )
 
 type ctxKey int

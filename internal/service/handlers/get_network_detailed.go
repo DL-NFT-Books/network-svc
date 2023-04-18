@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"gitlab.com/distributed_lab/ape"
-	"gitlab.com/tokend/nft-books/network-svc/resources"
+	"github.com/dl-nft-books/network-svc/resources"
 )
 
 func GetNetworkDetailedByChainID(w http.ResponseWriter, r *http.Request) {

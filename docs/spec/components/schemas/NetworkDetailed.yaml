@@ -22,44 +22,44 @@ allOf:
           name:
             type: string
             description: Network name
-            example: "polygon"
+            example: polygon
           chain_id:
-            type: int64
+            type: integer
             description: Chain id
             example: 5
           rpc_url:
             type: string
             description: RPC url to listen events
-            example: "https://eth-goerli.g.alchemy.com/v2/..."
+            example: 'https://eth-goerli.g.alchemy.com/v2/...'
           ws_url:
             type: string
             description: Websocket url to listen events
-            example: "wss://eth-goerli.g.alchemy.com/v2/..."
+            example: 'wss://eth-goerli.g.alchemy.com/v2/...'
           factory_address:
             type: string
             description: Address of token factory on current network
-            example: "0x63B703318fbcD1F319a5C0036F9bcd6573c483ba"
+            example: '0x63B703318fbcD1F319a5C0036F9bcd6573c483ba'
           factory_name:
             type: string
             description: Token factory name
-            example: "TokenFactory"
+            example: TokenFactory
           factory_version:
             type: string
             description: Token factory version
-            example: "1"
+            example: '1'
           first_block:
-            type: int64
+            type: integer
             description: A first block to begin monitoring events
             example: 12345
           token_name:
             type: string
             description: Native token name
-            example: "Ethereum"
+            example: Ethereum
           token_symbol:
             type: string
             description: Native token symbol
-            example: "ETH"
+            example: ETH
           decimals:
-            type: int64
+            type: integer
             description: decimal
             example: 5
